@@ -37,6 +37,9 @@ namespace ModernHttpClient
         public static Func<string, ISSLSession, bool> verifyHostnameCallback;
         public static IX509TrustManager customTrustManager;
 
+        public static Action<NativeMessageHandler, OkHttpClient.Builder> okHttpClientInitNativeMessageHandlerCallback;
+        public static Action<NativeMessageHandler, OkHttpClient.Builder, HttpRequestMessage> okHttpClientInitSendAsyncCallback;
+
         public NativeMessageHandler(bool throwOnCaptiveNetwork, bool customSSLVerification, NativeCookieHandler cookieHandler = null)
         {
             this.throwOnCaptiveNetwork = throwOnCaptiveNetwork;
@@ -66,6 +69,8 @@ namespace ModernHttpClient
             if (cookieHandler != null) {
                 clientBuilder.CookieJar(cookieHandler);
             }
+
+            okHttpClientInitNativeMessageHandlerCallback?.Invoke(this, clientBuilder);
 
             client = clientBuilder.Build();
 
@@ -118,6 +123,8 @@ namespace ModernHttpClient
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             var clientBuilder = client.NewBuilder();
+
+            okHttpClientInitSendAsyncCallback?.Invoke(this, clientBuilder, request);
 
             // Support self-signed certificates
             if (EnableUntrustedCertificates)

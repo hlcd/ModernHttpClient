@@ -4,13 +4,13 @@
     <TargetFrameworks>netstandard2.0;MonoAndroid80;Xamarin.iOS10;uap10.0.16299;</TargetFrameworks>
     <AssemblyName>ModernHttpClient</AssemblyName>
     <RootNamespace>ModernHttpClient</RootNamespace>
-    <PackageId>modernhttpclient-updated</PackageId>
+    <PackageId>modernhttpclient-hlcd</PackageId>
     
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <AssemblyVersion>2.7.2</AssemblyVersion>
-    <AssemblyFileVersion>2.7.2</AssemblyFileVersion>
-    <Version>2.7.2</Version>
-    <PackageVersion>2.7.2</PackageVersion>
+    <AssemblyVersion>2.7.2.1</AssemblyVersion>
+    <AssemblyFileVersion>2.7.2.1</AssemblyFileVersion>
+    <Version>2.7.2.1</Version>
+    <PackageVersion>2.7.2.1</PackageVersion>
     <PackOnBuild>true</PackOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
     <LangVersion>default</LangVersion>
@@ -21,10 +21,12 @@
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     
     <!--TODO: Fill these in-->
-    <PackageLicenseUrl>https://github.com/alexrainman/ModernHttpClient/blob/master/COPYING</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/alexrainman/ModernHttpClient</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/alexrainman/ModernHttpClient</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/hlcd/ModernHttpClient/blob/master/COPYING</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/hlcd/ModernHttpClient</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/hlcd/ModernHttpClient</RepositoryUrl>
     <PackageReleaseNotes>
+      2.7.2.1
+      [Android] OkHttpClient init callbacks
       2.7.2
       [Android] Handshake failed (adding customTrustManager static property) #11
       2.7.1
@@ -74,8 +76,8 @@
     <Summary>Write your app using System.Net.Http, but drop this library in and it will go drastically faster.</Summary>
     <Description>Write your app using System.Net.Http, but drop this library in and it will go drastically faster.</Description>
 
-    <Owners>Alex Rainman</Owners>
-    <Authors>Alex Rainman</Authors>
+    <Owners>Holycode</Owners>
+    <Authors>Alex Rainman, Holycode</Authors>
     <Copyright>Copyright Paul Betts © 2012</Copyright>
   </PropertyGroup>
 
